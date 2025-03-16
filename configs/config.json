@@ -1,0 +1,10 @@
+{
+  "metadata_path": "./data/processed/metadata.csv",
+  "audio_dir": "./data/vivos/train/waves",
+  "output_dir": "./output/mixtures", 
+  "num_mixtures": 100,
+  "snr_db_range": [-5, 5],
+  "overlap_ratio_range": [0.2, 0.5],
+  "downsample_rate": 8000 
+}
+  
