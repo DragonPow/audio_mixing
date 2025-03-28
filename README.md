@@ -46,7 +46,7 @@ Default `[[myenv]]` is `audio_mixing_env`. You can change it to any name you wan
       ```
 
 ## Run script steps
-### Generation annotation file from raw dataset
+### 1. Generation annotation file from raw dataset
 ```bash
 python scripts/annotation_gen \
       --dataset_type [dataset_type] \
@@ -58,15 +58,22 @@ python scripts/annotation_gen \
 Where:
 - `dataset_type` is the type of dataset. It can be either `vivos`.
 - `dataset_dir` is the directory of the dataset. The directory should contain the audio files.
-- `annotation_file_name` is the raw annotation file of dataset.
-- `output_file_name` is the name of the output file.
+- `annotation_file_name` is the raw annotation file of dataset. Default is `./data/vivos/train/prompts.txt`
+- `output_file_name` is the name of the output file. Default is `./data/processed/metadata.csv`
 
-### Create mixing dataset
+### 2. Create mixing dataset
 First, file config is in `configs/config.json`. Updated the config file to match your dataset.
 
 Second, run the following command to create a mixing dataset:
 ```bash
-python scripts/mixing_dataset
+python scripts/mix_audio.py
 ```
 
 The output will be saved in the `output_dir` in the config file.
+
+### 3. Testing the model
+
+File notebook using for testing is in dir `./notebooks`:
+- File `data_exploration.ipynb` is used for check the dataset mixing
+- File `test_eval_.*.ipynb` is used for testing the models
+- File `test_waveform.ipynb` is used for testing the waveform
